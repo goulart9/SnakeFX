@@ -31,7 +31,7 @@ public class App extends Application {
     final int GRID_SIZE = 10;
     final int DELAY_MILLISECONDS = 100;
     String[][] gridArray;
-    String empty = "\t";
+    String empty = "a";
     Random r = new Random();
     int score = 1;
 
@@ -90,25 +90,13 @@ public class App extends Application {
             snake.setXHeadLoc(getRandomLoc(GRID_SIZE));
         }
 
-//        System.out.printf("Random y number between 0 and %d: %d\n", GRID_SIZE, snake.getYHeadLoc());
-//        System.out.printf("Random x number between 0 and %d: %d\n", GRID_SIZE, snake.getXHeadLoc());
         gridArray[snake.getYHeadLoc()][snake.getXHeadLoc()] = snake.getHeadString();
     }
-//
-//    private int getRandomHeadLocY(int yUpperBound) {
-//
-//        return r.nextInt(yUpperBound);
-//    }
-//
-//    private int getRandomHeadLocX(int xUpperBound) {
-//
-//        return r.nextInt(xUpperBound);
-//    }
-//
+
     private String build() {
 
         StringBuilder sb = new StringBuilder();
-        
+
         sb.append("Score: ").append(score).append("\n");
 
         for (int y = 0; y < GRID_SIZE; y++) {
@@ -117,8 +105,6 @@ public class App extends Application {
             }
             sb.append("\n");
         }
-        sb.append("\n\n\n");
-        System.out.println(sb.toString());
 
         return sb.toString();
     }
@@ -130,26 +116,36 @@ public class App extends Application {
         switch (event.getCode()) {
 
             case UP:
-                if (snake.getYHeadLoc() != 0) {
+                for (int m = GRID_SIZE; m > 0; m--) {
                     snake.setYHeadLoc(snake.getYHeadLoc() - 1);
+                }
+                
+                if (snake.getYHeadLoc() < 0) {
+                    // gameover
                 }
                 break;
 
             case DOWN:
-                if (snake.getYHeadLoc() != GRID_SIZE - 1) {
-                    snake.setYHeadLoc(snake.getYHeadLoc() + 1);
+                snake.setYHeadLoc(snake.getYHeadLoc() + 1);
+                
+                if (snake.getYHeadLoc() > GRID_SIZE - 1) {
+                    // gameover
                 }
                 break;
 
             case LEFT:
-                if (snake.getXHeadLoc() != 0) {
-                    snake.setXHeadLoc(snake.getXHeadLoc() - 1);
+                snake.setXHeadLoc(snake.getXHeadLoc() - 1);
+                
+                if (snake.getXHeadLoc() < 0) {
+                    // gameover
                 }
                 break;
 
             case RIGHT:
-                if (snake.getXHeadLoc() != GRID_SIZE - 1) {
-                    snake.setXHeadLoc(snake.getXHeadLoc() + 1);
+                snake.setXHeadLoc(snake.getXHeadLoc() + 1);
+                
+                if (snake.getXHeadLoc() > GRID_SIZE - 1) {
+                    // gameover
                 }
                 break;
         }
