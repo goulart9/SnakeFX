@@ -116,9 +116,7 @@ public class App extends Application {
         switch (event.getCode()) {
 
             case UP:
-                for (int m = GRID_SIZE; m > 0; m--) {
-                    snake.setYHeadLoc(snake.getYHeadLoc() - 1);
-                }
+                snake.setYHeadLoc(snake.getYHeadLoc() - 1);
                 
                 if (snake.getYHeadLoc() < 0) {
                     // gameover
