@@ -6,33 +6,32 @@
  */
 package sevengables.snakefx;
 
+import javafx.scene.paint.Color;
+
+
 /**
  *
  * @author Kyle Goulart
  */
 public class Food {
 
-    String foodObj;
     int yFoodLoc;
     int xFoodLoc;
+    Color foodColor;
 
     public Food() {
-        foodObj = "F";
         yFoodLoc = -1;
         xFoodLoc = -1;
+        foodColor = Color.GREEN;
     }
 
-    public String getFoodString() {
-
-        return foodObj;
-    }
-    
     public int getYFoodLoc() {
 
         return yFoodLoc;
     }
-    
+
     public void setYFoodLoc(int y) {
+
         yFoodLoc = y;
     }
 
@@ -40,9 +39,15 @@ public class Food {
 
         return xFoodLoc;
     }
-    
+
     public void setXFoodLoc(int x) {
+
         xFoodLoc = x;
+    }
+
+    public Color getFoodColor() {
+
+        return foodColor;
     }
 
 }

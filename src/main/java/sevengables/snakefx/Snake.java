@@ -6,27 +6,24 @@
  */
 package sevengables.snakefx;
 
+import javafx.scene.paint.Color;
+
 /**
  *
  * @author Kyle Goulart
  */
 public class Snake {
 
-    String head;
 //    ArrayList<String> body;
     int yHeadLoc;
     int xHeadLoc;
+    Color snakeColor;
 
     public Snake() {
-        head = "H";
 //        body = new ArrayList<>();
         yHeadLoc = -1;
         xHeadLoc = -1;
-    }
-    
-    public String getHeadString() {
-        
-        return head;
+        snakeColor = Color.RED;
     }
 
     public int getYHeadLoc() {
@@ -47,6 +44,11 @@ public class Snake {
     public void setXHeadLoc(int x) {
         
         xHeadLoc = x;
+    }
+    
+    public Color getSnakeColor() {
+        
+        return snakeColor;
     }
 
 }
